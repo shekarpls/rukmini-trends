@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rukmini Trends - Boutique</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .size-options {
+      margin: 10px 0;
+    }
+
+    .size-btn {
+      border: 1px solid #ff1493;
+      color: #ff1493;
+      background: #fff;
+      border-radius: 6px;
+      padding: 5px 10px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .size-btn:hover, .size-btn.selected {
+      background: #ff1493;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,9 +47,17 @@
         <img src="images/dress1.jpg" alt="Kurti Set" />
         <h3>Kurti Set</h3>
         <p>₹1,599</p>
-        <a class="buy" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Kurti%20Set%20(₹1,599).">
-          Order Now
-        </a>
+
+        <!-- Size selection -->
+        <div class="size-options">
+          <span>Select Size:</span><br />
+          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'XXL')">XXL</button>
+        </div>
+
+        <a class="buy" id="kurti-link" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Kurti%20Set%20(₹1,599)." target="_blank">Order Now</a>
       </div>
 
       <!-- Product 2: Arifa Blue Gown -->
@@ -35,9 +65,17 @@
         <img src="images/dress2.jpg" alt="Arifa Blue Gown" />
         <h3>Arifa Blue Gown</h3>
         <p>₹999</p>
-        <a class="buy" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Arifa%20Blue%20Gown%20(₹999).">
-          Order Now
-        </a>
+
+        <!-- Size selection -->
+        <div class="size-options">
+          <span>Select Size:</span><br />
+          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'XXL')">XXL</button>
+        </div>
+
+        <a class="buy" id="gown-link" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Arifa%20Blue%20Gown%20(₹999)." target="_blank">Order Now</a>
       </div>
 
     </div>
@@ -47,6 +85,28 @@
   <footer>
     <p>© 2025 Rukmini Trends. All rights reserved.</p>
   </footer>
+
+  <script>
+    function selectSize(button, productName, size) {
+      // Highlight selected size
+      const buttons = button.parentElement.querySelectorAll('.size-btn');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+
+      // Generate WhatsApp message
+      const encodedMessage = encodeURIComponent(
+        `Hi Rukmini Trends, I'm interested in the ${productName} (${size})`
+      );
+      const waLink = `https://wa.me/917022238899?text=${encodedMessage}`;
+
+      // Update correct order link
+      if (productName.includes("Kurti")) {
+        document.getElementById("kurti-link").href = waLink;
+      } else {
+        document.getElementById("gown-link").href = waLink;
+      }
+    }
+  </script>
 
 </body>
 </html>
