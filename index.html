@@ -42,40 +42,79 @@
     <h2>Available Products</h2>
     <div class="product-grid">
 
-      <!-- Product 1: Kurti Set -->
+      <!-- Product 1 -->
       <div class="product">
-        <img src="images/dress1.jpg" alt="Kurti Set" />
-        <h3>Kurti Set</h3>
+        <img src="images/dress1.jpg" alt="Dress 1" />
+        <h3>Dress 1</h3>
         <p>₹1,599</p>
-
-        <!-- Size selection -->
         <div class="size-options">
           <span>Select Size:</span><br />
-          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'M')">M</button>
-          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'L')">L</button>
-          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'XL')">XL</button>
-          <button class="size-btn" onclick="selectSize(this, 'Kurti Set', 'XXL')">XXL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 1', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 1', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 1', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 1', 'XXL')">XXL</button>
         </div>
-
-        <a class="buy" id="kurti-link" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Kurti%20Set%20(₹1,599)." target="_blank">Order Now</a>
+        <a class="buy" id="link1" href="#" target="_blank">Order Now</a>
       </div>
 
-      <!-- Product 2: Arifa Blue Gown -->
+      <!-- Product 2 -->
       <div class="product">
-        <img src="images/dress2.jpg" alt="Arifa Blue Gown" />
-        <h3>Arifa Blue Gown</h3>
-        <p>₹999</p>
-
-        <!-- Size selection -->
+        <img src="images/dress2.jpg" alt="Dress 2" />
+        <h3>Dress 2</h3>
+        <p>₹1,499</p>
         <div class="size-options">
           <span>Select Size:</span><br />
-          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'M')">M</button>
-          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'L')">L</button>
-          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'XL')">XL</button>
-          <button class="size-btn" onclick="selectSize(this, 'Arifa Blue Gown', 'XXL')">XXL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 2', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 2', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 2', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 2', 'XXL')">XXL</button>
         </div>
+        <a class="buy" id="link2" href="#" target="_blank">Order Now</a>
+      </div>
 
-        <a class="buy" id="gown-link" href="https://wa.me/917022238899?text=Hi%20Rukmini%20Trends%2C%20I'm%20interested%20in%20the%20Arifa%20Blue%20Gown%20(₹999)." target="_blank">Order Now</a>
+      <!-- Product 3 -->
+      <div class="product">
+        <img src="images/dress3.jpg" alt="Dress 3" />
+        <h3>Dress 3</h3>
+        <p>₹1,299</p>
+        <div class="size-options">
+          <span>Select Size:</span><br />
+          <button class="size-btn" onclick="selectSize(this, 'Dress 3', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 3', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 3', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 3', 'XXL')">XXL</button>
+        </div>
+        <a class="buy" id="link3" href="#" target="_blank">Order Now</a>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product">
+        <img src="images/dress4.jpg" alt="Dress 4" />
+        <h3>Dress 4</h3>
+        <p>₹999</p>
+        <div class="size-options">
+          <span>Select Size:</span><br />
+          <button class="size-btn" onclick="selectSize(this, 'Dress 4', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 4', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 4', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 4', 'XXL')">XXL</button>
+        </div>
+        <a class="buy" id="link4" href="#" target="_blank">Order Now</a>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product">
+        <img src="images/dress5.jpg" alt="Dress 5" />
+        <h3>Dress 5</h3>
+        <p>₹899</p>
+        <div class="size-options">
+          <span>Select Size:</span><br />
+          <button class="size-btn" onclick="selectSize(this, 'Dress 5', 'M')">M</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 5', 'L')">L</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 5', 'XL')">XL</button>
+          <button class="size-btn" onclick="selectSize(this, 'Dress 5', 'XXL')">XXL</button>
+        </div>
+        <a class="buy" id="link5" href="#" target="_blank">Order Now</a>
       </div>
 
     </div>
@@ -88,23 +127,18 @@
 
   <script>
     function selectSize(button, productName, size) {
-      // Highlight selected size
       const buttons = button.parentElement.querySelectorAll('.size-btn');
       buttons.forEach(btn => btn.classList.remove('selected'));
       button.classList.add('selected');
 
-      // Generate WhatsApp message
       const encodedMessage = encodeURIComponent(
         `Hi Rukmini Trends, I'm interested in the ${productName} (${size})`
       );
       const waLink = `https://wa.me/917022238899?text=${encodedMessage}`;
 
-      // Update correct order link
-      if (productName.includes("Kurti")) {
-        document.getElementById("kurti-link").href = waLink;
-      } else {
-        document.getElementById("gown-link").href = waLink;
-      }
+      const parent = button.closest('.product');
+      const orderBtn = parent.querySelector('.buy');
+      orderBtn.href = waLink;
     }
   </script>
 
