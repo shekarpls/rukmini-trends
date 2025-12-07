@@ -348,47 +348,47 @@
         <a class="buy" href="#" target="_blank">Order Now</a>
       </div>
 
-      
-    </div>
-  </section>
+      </div>
+</section>
 
-  <footer>
-    <p>© 2025 Rukmini Trends. All rights reserved.</p>
-  </footer>
-  <!-- WhatsApp Script -->
-  <script>
-    function selectSize(button, productName, size) {
-      const buttons = button.parentElement.querySelectorAll('.size-btn:not(.disabled)');
-      buttons.forEach(btn => btn.classList.remove('selected'));
-      button.classList.add('selected');
+<!-- Zoom Popup -->
+<div class="zoom-popup" id="zoomPopup">
+  <span class="close-zoom" onclick="closeZoom()">×</span>
+  <img id="zoomImage" src="" />
+</div>
 
-      const encodedMessage = encodeURIComponent(
-        `Hi Rukmini Trends, I'm interested in ${productName} (Size: ${size})`
-      );
-      const waLink = `https://wa.me/917022238899?text=${encodedMessage}`;
+<footer>
+  &copy; 2025 Rukmini Trends. All rights reserved.
+</footer>
 
-      const parent = button.closest('.product');
-      const orderBtn = parent.querySelector('.buy');
-      orderBtn.href = waLink;
-    }
+<script>
+  // Zoom JS
+  function zoomImage(img) {
+    document.getElementById('zoomImage').src = img.src;
+    document.getElementById('zoomPopup').style.display = 'flex';
+  }
+  function closeZoom() {
+    document.getElementById('zoomPopup').style.display = 'none';
+  }
 
-    // Auto WhatsApp link for products WITHOUT size buttons
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll(".product").forEach(prod => {
-        const sizeBtns = prod.querySelectorAll(".size-btn");
-        const img = prod.querySelector("img");
-        const buy = prod.querySelector(".buy");
-
-        if (sizeBtns.length === 0) {
-          const productName = img.alt;
-          const message = encodeURIComponent(
-            `Hi Rukmini Trends, I'm interested in ${productName}. Please share details.`
-          );
-          buy.href = `https://wa.me/917022238899?text=${message}`;
-        }
-      });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".product img").forEach(img => {
+      img.addEventListener("click", () => zoomImage(img));
     });
-  </script>
+  });
 
+  // Size selection
+  function selectSize(btn, productName, size) {
+    // Deselect others in same product
+    btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Update WhatsApp link with product + size
+    let orderBtn = btn.parentElement.nextElementSibling;
+    let phone = "919999999999"; // your WhatsApp number
+    let msg = encodeURIComponent(`${productName} - Size ${size} - I want to order`);
+    orderBtn.href = `https://wa.me/${phone}?text=${msg}`;
+  }
+</script>
 </body>
 </html>
