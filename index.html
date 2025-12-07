@@ -13,21 +13,23 @@
       background: #fff0f7;
     }
 
-    /* HEADER */
+    /* ⭐ CENTERED HEADER ⭐ */
     header {
-      display: flex;
-      align-items: center;
-      padding: 10px 20px;
+      text-align: center;
+      padding: 15px;
       background: #ff1493;
       color: white;
     }
     header img.logo {
-      height: 55px;
-      border-radius: 6px;
-      margin-right: 15px;
+      height: 70px;
+      display: block;
+      margin: 0 auto 8px auto;
+      border-radius: 8px;
     }
-
-    h1 { margin: 0; font-size: 26px; }
+    h1 {
+      margin: 0;
+      font-size: 26px;
+    }
 
     /* PRODUCTS SECTION */
     .products {
@@ -71,10 +73,12 @@
       font-weight: bold;
       transition: 0.2s;
     }
-    .size-btn:hover, .size-btn.selected {
+    .size-btn:hover,
+    .size-btn.selected {
       background: #ff1493;
       color: white;
     }
+
     .size-btn.disabled {
       border-color: #ccc;
       color: #aaa;
@@ -130,9 +134,10 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
+  <!-- ⭐ CENTERED HEADER ⭐ -->
   <header>
     <img src="logo.webp" class="logo" alt="Rukmini Trends Logo">
     <h1>Rukmini Trends</h1>
@@ -140,7 +145,6 @@
 
   <section class="products">
     <h2>Shop the latest collection now! Enjoy free delivery and the best prices</h2>
-    <div class="product-grid">
 
       <!-- Products 1 to 24 -->
       <!-- Dress 1 -->
