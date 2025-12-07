@@ -348,7 +348,7 @@
         <a class="buy" href="#" target="_blank">Order Now</a>
       </div>
 
-      </div>
+</div>
 </section>
 
 <!-- Zoom Popup -->
@@ -358,37 +358,83 @@
 </div>
 
 <footer>
-  &copy; 2025 Rukmini Trends. All rights reserved.
+  <p>© 2025 Rukmini Trends. All rights reserved.</p>
 </footer>
 
+<!-- Combined Zoom + WhatsApp Script -->
 <script>
-  // Zoom JS
+  // Zoom Functionality
   function zoomImage(img) {
     document.getElementById('zoomImage').src = img.src;
     document.getElementById('zoomPopup').style.display = 'flex';
   }
+
   function closeZoom() {
     document.getElementById('zoomPopup').style.display = 'none';
   }
 
+  // Size Selection + WhatsApp Link
+  function selectSize(button, productName, size) {
+    const buttons = button.parentElement.querySelectorAll('.size-btn:not(.disabled)');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+
+    const encodedMessage = encodeURIComponent(`Hi Rukmini Trends, I'm interested in ${productName} (Size: ${size})`);
+    const waLink = `https://wa.me/917022238899?text=${encodedMessage}`;
+
+    const parent = button.closest('.product');
+    const orderBtn = parent.querySelector('.buy');
+    orderBtn.href = waLink;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    // Zoom click for all images
     document.querySelectorAll(".product img").forEach(img => {
       img.addEventListener("click", () => zoomImage(img));
     });
+
+    // WhatsApp links for products without size
+    document.querySelectorAll(".product").forEach(prod => {
+      const sizeBtns = prod.querySelectorAll(".size-btn");
+      const img = prod.querySelector("img");
+      const buy = prod.querySelector(".buy");
+
+      if (sizeBtns.length === 0) {
+        const productName = img.alt;
+        const message = encodeURIComponent(`Hi Rukmini Trends, I'm interested in ${productName}. Please share details.`);
+        buy.href = `https://wa.me/917022238899?text=${message}`;
+      }
+    });
   });
-
-  // Size selection
-  function selectSize(btn, productName, size) {
-    // Deselect others in same product
-    btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-
-    // Update WhatsApp link with product + size
-    let orderBtn = btn.parentElement.nextElementSibling;
-    let phone = "919999999999"; // your WhatsApp number
-    let msg = encodeURIComponent(`${productName} - Size ${size} - I want to order`);
-    orderBtn.href = `https://wa.me/${phone}?text=${msg}`;
-  }
 </script>
+
+<!-- Optional Zoom CSS if not already in your <style>: -->
+<style>
+  .zoom-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .zoom-popup img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  .close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+
 </body>
 </html>
